@@ -7,7 +7,7 @@ instance=str(sys.argv[3])
 version=str(sys.argv[4])
 package_path=str(sys.argv[5])
 pt="{}\{}".format(package_path,"target\{}".format(version)
-try:                  
+try:
     ssh=paramiko.SSHClient()
 except paramiko.SSHException:
                   
