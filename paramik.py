@@ -1,4 +1,5 @@
 import paramiko
+import os
 import scp
 import sys
 pwd=str(sys.argv[1])
@@ -6,12 +7,14 @@ hosts=str(sys.argv[2])
 instance=str(sys.argv[3])
 version=str(sys.argv[4])
 package_path=str(sys.argv[5])
-pt="{}\{}".format(package_path,"target\{}".format(version)
-ssh = paramiko.SSHClient()
+#pt="{}\{}".format(package_path,"target\{}".format(version))
+pt=str(os.path.join(package_path,"target","{}.war".formant(version)))
+ssh=paramiko.SSHClient()
+                
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 def ftp(path):
     sftp=ssh.open_sftp()
-    sftp.put("/var/lib/jenkins/workspace/end2end/target/sivamani.war","/home/mani/tomcat/packages/")
+    sftp.put(pt,"/home/mani/tomcat/packages/")
     sftp.close()
 
 for host in hosts.split(","):
