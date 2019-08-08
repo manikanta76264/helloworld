@@ -11,13 +11,13 @@ ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 print(package_paths)
 
 def ftp(path):
-	sftp=ssh.open_sftp()
-	sftp.put(path,"/home/mani/tomcat/packages/")
-	sftp.close()
+    sftp=ssh.open_sftp()
+    sftp.put(path,"/home/mani/tomcat/packages/")
+    sftp.close()
 
 for host in hosts.split(","):
-	print("conecting to {}".format(host))
-	ssh.connect(hostname=host,username="mani",password=pwd)
-	ftp(package_path)
-        stdin,stdout,stderr=ssh.exec_command("sh /home/mani/tomcat/scripts/deploy.sh {} {}".format(instance,version),get_pty=True)
-        print(''.join(stdout.readlines()))
+    print("conecting to {}".format(host))
+    ssh.connect(hostname=host,username="mani",password=pwd)
+    ftp(package_path)
+    stdin,stdout,stderr=ssh.exec_command("sh /home/mani/tomcat/scripts/deploy.sh {} {}".format(instance,version),get_pty=True)
+    print(''.join(stdout.readlines()))
