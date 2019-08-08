@@ -7,7 +7,7 @@ instance=str(sys.argv[3])
 version=str(sys.argv[4])
 package_path=str(sys.argv[5])
 pt="{}\{}".format(package_path,"target\{}".format(version)
-ssh=paramiko.SSHClient()
+ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 def ftp(path):
     sftp=ssh.open_sftp()
