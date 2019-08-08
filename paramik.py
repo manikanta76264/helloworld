@@ -20,6 +20,6 @@ def ftp(path):
 for host in hosts.split(","):
     print("conecting to {}".format(host))
     ssh.connect(hostname=host,username="mani",password=pwd)
-    ftp(package_path)
+    ftp(pt)
     stdin,stdout,stderr=ssh.exec_command("sh /home/mani/tomcat/scripts/deploy.sh {} {}".format(instance,version),get_pty=True)
     print(''.join(stdout.readlines()))
