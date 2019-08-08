@@ -8,7 +8,7 @@ instance=str(sys.argv[3])
 version=str(sys.argv[4])
 #package_path=str(sys.argv[5])
 #pt="{}\{}".format(package_path,"target\{}".format(version))
-pt=str(os.path.join("C","Program Files (x86)","Jenkins","workspace","folder1","end2end","target","{}.war".format(version)))
+pt=str(C:\\Program Files (x86)\\Jenkins\\workspace\\folder1\\end2end\\target\\sivamani.war)
 ssh=paramiko.SSHClient()
                 
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
