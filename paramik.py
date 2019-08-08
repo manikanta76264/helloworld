@@ -12,7 +12,7 @@ print(package_paths)
 
 def ftp(path):
 	sftp=ssh.open_sftp()
-	sftp.put(path "/home/mani/tomcat/packages/")
+	sftp.put(path,"/home/mani/tomcat/packages/")
 	sftp.close()
 
 for host in hosts.split(","):
