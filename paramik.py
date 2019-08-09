@@ -15,7 +15,7 @@ ssh=paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 def ftp(path):
     sftp=ssh.open_sftp()
-    sftp.put(path,"/home/mani/tomcat/packages/")
+    sftp.put(path,"/home/mani/tomcat/packages/{}.war".format(version))
     sftp.close()
 
 for host in hosts.split(","):
