@@ -23,4 +23,6 @@ for host in hosts.split(","):
     ssh.connect(hostname=host,username="mani",password=pwd)
     ftp(pt)
     stdin,stdout,stderr=ssh.exec_command("sh /home/mani/tomcat/scripts/deploy.sh {} {}".format(instance,version),get_pty=True)
-    print(''.join(stdout.readlines()))
+    #print(''.join(stdout.readlines()))
+    for line in stdout:
+        print(line)
